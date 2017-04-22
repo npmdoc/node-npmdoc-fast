@@ -1,0 +1,631 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>fast (v2.2.3)</a>
+</h1>
+<h4>streaming JSON RPC over TCP</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast">module fast</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast.</span>bench</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast.</span>demo_server</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast.</span>fast_client_request</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast.</span>fast_protocol</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fast.</span>subr</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast.bench">module fast.bench</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.bench.fastBenchWorkloads">
+            function <span class="apidocSignatureSpan">fast.bench.</span>fastBenchWorkloads
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast.demo_server">module fast.demo_server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.demo_server.demoRpcs">
+            function <span class="apidocSignatureSpan">fast.demo_server.</span>demoRpcs
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast.fast_client_request">module fast.fast_client_request</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.fast_client_request.FastClientRequest">
+            function <span class="apidocSignatureSpan">fast.fast_client_request.</span>FastClientRequest
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast.fast_protocol">module fast.fast_protocol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.fast_protocol.FastMessageDecoder">
+            function <span class="apidocSignatureSpan">fast.fast_protocol.</span>FastMessageDecoder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.fast_protocol.FastMessageEncoder">
+            function <span class="apidocSignatureSpan">fast.fast_protocol.</span>FastMessageEncoder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.fast_protocol.fastMessageEncode">
+            function <span class="apidocSignatureSpan">fast.fast_protocol.</span>fastMessageEncode
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_HEADER_SZ</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_MSGID_MAX</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_CRC</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_DATA</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_DATALEN</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_MSGID</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_STATUS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_TYPE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_OFF_VERSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_STATUS_DATA</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_STATUS_END</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_STATUS_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_TYPE_JSON</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_VERSION_1</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">fast.fast_protocol.</span>FP_VERSION_CURRENT</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fast.subr">module fast.subr</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.subr.IdAllocator">
+            function <span class="apidocSignatureSpan">fast.subr.</span>IdAllocator
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fast.subr.summarizeSocketAddrs">
+            function <span class="apidocSignatureSpan">fast.subr.</span>summarizeSocketAddrs
+            <span class="apidocSignatureSpan">(sock)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast" id="apidoc.module.fast">module fast</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast.bench" id="apidoc.module.fast.bench">module fast.bench</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast.bench.fastBenchWorkloads" id="apidoc.element.fast.bench.fastBenchWorkloads">
+        function <span class="apidocSignatureSpan">fast.bench.</span>fastBenchWorkloads
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fastBenchWorkloads()
+{
+	return (FastBenchWorkloads);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast.demo_server" id="apidoc.module.fast.demo_server">module fast.demo_server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast.demo_server.demoRpcs" id="apidoc.element.fast.demo_server.demoRpcs">
+        function <span class="apidocSignatureSpan">fast.demo_server.</span>demoRpcs
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function demoRpcs()
+{
+	return (demoRpc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast.fast_client_request" id="apidoc.module.fast.fast_client_request">module fast.fast_client_request</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast.fast_client_request.FastClientRequest" id="apidoc.element.fast.fast_client_request.FastClientRequest">
+        function <span class="apidocSignatureSpan">fast.fast_client_request.</span>FastClientRequest
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FastClientRequest(args)
+{
+	mod_assertplus.object(args, 'args');
+	mod_assertplus.object(args.client, 'args.client');
+	mod_assertplus.number(args.msgid, 'args.msgid');
+	mod_assertplus.string(args.rpcmethod, 'args.rpcmethod');
+	mod_assertplus.array(args.rpcargs, 'args.rpcargs');
+	mod_assertplus.object(args.log, 'args.log');
+	mod_assertplus.bool(args.ignoreNullValues, 'args.ignoreNullValues');
+
+	<span class="apidocCodeCommentSpan">/* rpc parameters */
+</span>	this.frq_client = args.client;
+	this.frq_msgid = args.msgid;
+	this.frq_rpcmethod = args.rpcmethod;
+	this.frq_rpcargs = args.rpcargs;
+	this.frq_ignorenull = args.ignoreNullValues;
+
+	/*
+	 * RPC state: most RPC requests are immediately transmitted (at least to
+	 * the underlying transport, even if that component ends up queueing
+	 * them).  Once that happens, they complete in one of three ways:
+	 *
+	 *     o gracefully, when the server sends an "end" or "error" message
+	 *
+	 *     o when the local caller issues an abandonment
+	 *
+	 *     o when there's an error on the transport, after which we do not
+	 *       expect to receive a graceful response
+	 *
+	 * The first two conditions are indicated by frq_done_graceful and
+	 * frq_abandoned.  frq_error is set whenever an error is encountered for
+	 * this request, which may be in any of these conditions.
+	 *
+	 * If the transport is disconnected when the user makes the initial
+	 * request, then we never bother to transmit the request.  We will set
+	 * frq_skip for this case, though only for debugging purposes.
+	 */
+	this.frq_done_graceful = false;	/* recvd "end" or "error" from server */
+	this.frq_abandoned = false;	/* abandoned locally */
+	this.frq_error = null;		/* error, if any */
+	this.frq_timeout = null;	/* timeout handle, if any */
+
+	/* helpers */
+	this.frq_log = args.log;	/* logger */
+
+	/* debugging state */
+	this.frq_skip = false;		/* RPC was skipped (no transport) */
+	this.frq_ndata = 0;		/* data messages emitted */
+	this.frq_nignored = 0;		/* count of ignored messages */
+	this.frq_nignored_null = 0;	/* count of ignored "null" values */
+	this.frq_last = null;		/* last message received */
+
+	/*
+	 * The high watermark is not really used because we do not support flow
+	 * control.
+	 */
+	mod_stream.PassThrough.call(this, {
+	    'objectMode': true,
+	    'highWaterMark': 16
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast.fast_protocol" id="apidoc.module.fast.fast_protocol">module fast.fast_protocol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast.fast_protocol.FastMessageDecoder" id="apidoc.element.fast.fast_protocol.FastMessageDecoder">
+        function <span class="apidocSignatureSpan">fast.fast_protocol.</span>FastMessageDecoder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FastMessageDecoder()
+{
+	mod_stream.Transform.call(this, {
+	    'objectMode': true
+	});
+
+	<span class="apidocCodeCommentSpan">/* current state */
+</span>	this.md_buffer = null;		/* unparsed data */
+	this.md_havebytes = 0;		/* bytes of unparsed data */
+	this.md_done = false;		/* we've read end-of-stream */
+	this.md_error = null;		/* fatal error */
+	this.md_pushing = false;	/* currently calling push() */
+
+	/* current header */
+	this.md_version = null;
+	this.md_type = null;
+	this.md_status = null;
+	this.md_msgid = null;
+	this.md_crc = null;
+	this.md_datalen = null;
+
+	/* debug information */
+	this.md_nmessages = 0;
+	this.md_nbytes = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast.fast_protocol.FastMessageEncoder" id="apidoc.element.fast.fast_protocol.FastMessageEncoder">
+        function <span class="apidocSignatureSpan">fast.fast_protocol.</span>FastMessageEncoder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FastMessageEncoder()
+{
+	mod_stream.Transform.call(this, {
+	    'highWaterMark': 16,
+	    'objectMode': true
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast.fast_protocol.fastMessageEncode" id="apidoc.element.fast.fast_protocol.fastMessageEncode">
+        function <span class="apidocSignatureSpan">fast.fast_protocol.</span>fastMessageEncode
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fastMessageEncode(msg)
+{
+	var buffer, data_encoded, datalen, crc16;
+
+	mod_assertplus.object(msg, 'msg');
+	mod_assertplus.ok(typeof (msg.msgid) == 'number' &amp;&amp;
+	    Math.floor(msg.msgid) == msg.msgid &amp;&amp;
+	    msg.msgid &gt;= 0 &amp;&amp; msg.msgid &lt;= FP_MSGID_MAX,
+	    'msg.msgid is not an integer between 0 and FP_MSGID_MAX');
+	mod_assertplus.object(msg.data, 'msg.data');
+	mod_assertplus.number(msg.status, 'msg.status');
+
+	switch (msg.status) {
+	case FP_STATUS_DATA:
+	case FP_STATUS_END:
+	case FP_STATUS_ERROR:
+		break;
+	default:
+		throw (new VError('unsupported fast message status'));
+	}
+
+	data_encoded = JSON.stringify(msg.data);
+	crc16 = mod_crc.crc16(data_encoded);
+	datalen = Buffer.byteLength(data_encoded);
+	buffer = new Buffer(FP_HEADER_SZ + datalen);
+	buffer.writeUInt8(FP_VERSION_CURRENT, FP_OFF_VERSION);
+	buffer.writeUInt8(FP_TYPE_JSON, FP_OFF_TYPE);
+	buffer.writeUInt8(msg.status, FP_OFF_STATUS);
+	buffer.writeUInt32BE(msg.msgid, FP_OFF_MSGID);
+	buffer.writeUInt32BE(crc16, FP_OFF_CRC);
+	buffer.writeUInt32BE(datalen, FP_OFF_DATALEN);
+	buffer.write(data_encoded, FP_OFF_DATA, datalen, 'utf8');
+	return (buffer);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fast.subr" id="apidoc.module.fast.subr">module fast.subr</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fast.subr.IdAllocator" id="apidoc.element.fast.subr.IdAllocator">
+        function <span class="apidocSignatureSpan">fast.subr.</span>IdAllocator
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function IdAllocator(args)
+{
+	mod_assertplus.object(args, 'args');
+	mod_assertplus.number(args.min, 'args.min');
+	mod_assertplus.number(args.max, 'args.max');
+	mod_assertplus.func(args.isAllocated, 'args.isAllocated');
+	mod_assertplus.ok(args.min &lt; args.max, 'min must be less than max');
+	mod_assertplus.ok(args.min &gt;= 0, 'min must be non-negative');
+	mod_assertplus.ok(args.max &lt;= Math.pow(2, 31), 'max is too big');
+
+	this.ida_min = args.min;
+	this.ida_max = args.max;
+	this.ida_isalloc = args.isAllocated;
+	this.ida_nextid = this.ida_min;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fast.subr.summarizeSocketAddrs" id="apidoc.element.fast.subr.summarizeSocketAddrs">
+        function <span class="apidocSignatureSpan">fast.subr.</span>summarizeSocketAddrs
+        <span class="apidocSignatureSpan">(sock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function summarizeSocketAddrs(sock)
+{
+	var laddr, rv;
+
+	laddr = sock.address();
+
+	if (sock.remoteAddress === undefined &amp;&amp;
+	    sock.remotePort === undefined &amp;&amp;
+	    sock.remoteFamily === undefined) {
+		return ({ 'socketType': 'UDS (inferred)', 'label': 'UDS' });
+	}
+
+	rv = {};
+	rv['remoteAddress'] = sock.remoteAddress;
+	rv['remotePort'] = sock.remotePort;
+
+	if (laddr === null) {
+		rv['socketType'] = 'unknown';
+		rv['label'] = 'unknown';
+	} else {
+		rv['socketType'] = laddr.family ? laddr.family : 'unknown';
+		rv['localAddress'] = laddr.address;
+		rv['localPort'] = laddr.port;
+
+		if (sock.remoteAddress) {
+			rv['label'] = sock.remoteAddress;
+			if (sock.remotePort) {
+				rv['label'] += ':' + sock.remotePort;
+			}
+		} else {
+			rv['label'] = 'unknown';
+		}
+	}
+
+	return (rv);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
