@@ -305,7 +305,23 @@
 {
 	return (FastBenchWorkloads);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function fbUsageMessage()
+{
+	var msg, workloads;
+
+	msg = &#x27;Runs Fast RPC requests to measure latency and throughput.\n\n&#x27;;
+	msg += &#x27;Available canned workloads:\n\n&#x27;;
+	workloads = mod_fastbench.<span class="apidocCodeKeywordSpan">fastBenchWorkloads</span>();
+	mod_jsprim.forEachKey(workloads, function (name, workload) {
+		msg += sprintf(&#x27;    %-8s  %s\n&#x27;, name, workload.description);
+	});
+
+	msg += [
+	    &#x27;&#x27;,
+	    &#x27;Options:&#x27;,
+...</pre></li>
     </ul>
 
 
@@ -326,7 +342,23 @@
 {
 	return (demoRpc);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	log.info(&#x27;starting fast server&#x27;);
+	sock = mod_net.createServer({ &#x27;allowHalfOpen&#x27;: true });
+	fastserver = new mod_fastserver.FastServer({
+	    &#x27;log&#x27;: log,
+	    &#x27;server&#x27;: sock
+	});
+
+	mod_fastdemo.<span class="apidocCodeKeywordSpan">demoRpcs</span>().forEach(function (r) {
+		fastserver.registerRpcMethod(r);
+	});
+
+	fastPort = args.fastPort;
+	kangPort = args.kangPort;
+	sock.listen(fastPort, function () {
+		var nsigs = 0;
+...</pre></li>
     </ul>
 
 
@@ -404,7 +436,23 @@
 	    &#x27;highWaterMark&#x27;: 16
 	});
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		mod_assertplus.ok(args.timeout &#x3e; 0, &#x27;args.timeout &#x3e; 0&#x27;);
+		timeoutms = args.timeout;
+	}
+
+	msgid = this.allocMessageId();
+	mod_assertplus.ok(!this.fc_pending.hasOwnProperty(msgid));
+	log = args.log ? args.log : this.fc_log;
+	request = new mod_client_request.<span class="apidocCodeKeywordSpan">FastClientRequest</span>({
+	    &#x27;client&#x27;: this,
+	    &#x27;msgid&#x27;: msgid,
+	    &#x27;rpcmethod&#x27;: args.rpcmethod,
+	    &#x27;rpcargs&#x27;: args.rpcargs,
+	    &#x27;ignoreNullValues&#x27;: args.ignoreNullValues || false,
+	    &#x27;log&#x27;: log.child({
+		&#x27;component&#x27;: &#x27;FastClientRequest&#x27;,
+...</pre></li>
     </ul>
 
 
@@ -446,7 +494,23 @@
 	this.md_nmessages = 0;
 	this.md_nbytes = 0;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		    self.fc_abandoned.hasOwnProperty(id));
+	    }
+	});
+
+	/* transport and message helper objects */
+	this.fc_transport_onerr = null;	/* error listener */
+	this.fc_msgencoder = new mod_protocol.FastMessageEncoder();
+	this.fc_msgdecoder = new mod_protocol.<span class="apidocCodeKeywordSpan">FastMessageDecoder</span>();
+
+	/* transport state */
+	this.fc_detached = false;	 /* caller detached us */
+	this.fc_transport_ended = false; /* transport detached us */
+
+	if (fastClientProvider === null) {
+		fastClientProvider = fastClientProviderInit();
+...</pre></li>
     </ul>
 
 
@@ -465,7 +529,23 @@
 	    &#x27;objectMode&#x27;: true
 	});
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		return (self.fc_pending.hasOwnProperty(id) ||
+		    self.fc_abandoned.hasOwnProperty(id));
+	    }
+	});
+
+	/* transport and message helper objects */
+	this.fc_transport_onerr = null;	/* error listener */
+	this.fc_msgencoder = new mod_protocol.<span class="apidocCodeKeywordSpan">FastMessageEncoder</span>();
+	this.fc_msgdecoder = new mod_protocol.FastMessageDecoder();
+
+	/* transport state */
+	this.fc_detached = false;	 /* caller detached us */
+	this.fc_transport_ended = false; /* transport detached us */
+
+	if (fastClientProvider === null) {
+...</pre></li>
     </ul>
 
 
@@ -573,7 +653,23 @@
 	this.ida_isalloc = args.isAllocated;
 	this.ida_nextid = this.ida_min;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this.fc_pending = {}; 		/* pending requests */
+	this.fc_abandoned = {};		/* abandoned, outstanding requests */
+	this.fc_nrpc_started = 0;	/* requests issued */
+	this.fc_nrpc_done = 0;		/* requests completed */
+	this.fc_recentrpc = [];		/* recently completed requests */
+	this.fc_error = null;		/* first fatal error, if any */
+	this.fc_nerrors = 0;		/* count of fatal errors */
+	this.fc_rqidalloc = new mod_subr.<span class="apidocCodeKeywordSpan">IdAllocator</span>({
+	    &#x27;min&#x27;: 1,
+	    &#x27;max&#x27;: mod_protocol.FP_MSGID_MAX,
+	    &#x27;isAllocated&#x27;: function isReqIdAllocated(id) {
+		return (self.fc_pending.hasOwnProperty(id) ||
+		    self.fc_abandoned.hasOwnProperty(id));
+	    }
+	});
+...</pre></li>
     </ul>
 
 
@@ -621,7 +717,23 @@
 
 	return (rv);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	mod_assertplus.object(args, &#x27;args&#x27;);
+	mod_assertplus.ok(args.connId, &#x27;args.connId&#x27;);
+	mod_assertplus.object(args.socket, &#x27;args.socket&#x27;);
+	mod_assertplus.object(args.log, &#x27;args.log&#x27;);
+
+	this.fc_connid = args.connId;	/* see above */
+	this.fc_socket = args.socket;	/* see above */
+	this.fc_addrinfo = mod_subr.<span class="apidocCodeKeywordSpan">summarizeSocketAddrs</span>(this.fc_socket);
+	this.fc_log = args.log.child({
+	    &#x27;connId&#x27;: this.fc_connid,
+	    &#x27;client&#x27;: this.fc_addrinfo.label
+	});
+	this.fc_pending = {};		/* pending requests */
+	this.fc_nstarted = 0;		/* count of requests started */
+	this.fc_ncompleted = 0;		/* count of requests completed */
+...</pre></li>
     </ul>
 
 
