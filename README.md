@@ -1,6 +1,6 @@
 # npmdoc-fast
 
-#### api documentation for  fast (v2.2.3)  [![npm package](https://img.shields.io/npm/v/npmdoc-fast.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fast) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fast.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fast)
+#### basic api documentation for  fast (v2.2.3)  [![npm package](https://img.shields.io/npm/v/npmdoc-fast.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fast) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fast.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fast)
 
 #### streaming JSON RPC over TCP
 
